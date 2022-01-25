@@ -48,7 +48,7 @@ export const DialoguesBox: FC<SelectedUserProps & ModalBackgroundProps> = ({
       `${
         process.env.NEXT_PUBLIC_REST_API_URL
       }/whatsapp360/file/${message.content.substring(
-        10,
+        14,
         message.content.length,
       )}${tokenQueryParam}`,
     );
@@ -75,6 +75,10 @@ export const DialoguesBox: FC<SelectedUserProps & ModalBackgroundProps> = ({
               message.from === chat.client.clientId ? (
                 <StyledUserDialogue key={index.toString()}>
                   <div>
+                    {console.log(message, 'message')}
+                    {console.log(message.from, 'from')}
+                    {console.log(chat.client.clientId, 'IDDDD')}
+
                     <Text>
                       {message.contentType === 'ATTACHMENT' &&
                         message.content.substring(
