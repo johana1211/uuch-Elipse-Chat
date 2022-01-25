@@ -79,8 +79,8 @@ export const ChatsViewSelectedToConfirm: FC<
   setShowPredefinedTexts,
 }) => {
   const showAlert = useToastContext();
-
   const dispatch = useAppDispatch();
+
   const { userDataInState }: any = useAppSelector(
     (state) => state.userAuthCredentials,
   );
@@ -91,7 +91,7 @@ export const ChatsViewSelectedToConfirm: FC<
     (state) => state.liveChat.chatsOnConversation,
   );
 
-  const { hasHistory, idClient, idChannel } = useSelector(
+  const { hasHistory, seccionIsPending, idClient, idChannel } = useSelector(
     (state: RootState) => state.liveChat.chatsHistoryState,
   );
 
@@ -376,7 +376,7 @@ export const ChatsViewSelectedToConfirm: FC<
               </Text>
             )}
           </span>
-          {hasHistory ? (
+          {hasHistory && !seccionIsPending ? (
             <button
               type="button"
               onClick={() => handleClickHistoryChat(true, 'HistoryChat')}>
