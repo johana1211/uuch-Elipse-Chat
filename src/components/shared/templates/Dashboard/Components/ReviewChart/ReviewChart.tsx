@@ -102,10 +102,7 @@ export const ReviewChart: FC<IPropsReview> = ({
             </BadgeMolecule>
           )}> */}
         <div>
-          <button
-            type="button"
-            disabled={reviewChats.length < 1}
-            onClick={handleClick}>
+          <button type="button" onClick={handleClick}>
             <BadgeMolecule
               leftIcon={() => <SVGIcon iconFile="/icons/candelar_alt.svg" />}>
               <Text>{datePicker}</Text>
