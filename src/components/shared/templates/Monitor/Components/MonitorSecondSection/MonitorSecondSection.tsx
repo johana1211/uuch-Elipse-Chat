@@ -11,6 +11,12 @@ import {
   WrapperFirtSectionCard,
   WrapperSecondSectionAgent,
   StyledAgentActive,
+  StyledToolTipCardName,
+  StyledToolTipCardEmail,
+  TooltipTextEmail,
+  TooltipTextName,
+  TooltipBoxEmail,
+  TooltipBoxName,
 } from './MonitorSecondSection.styled';
 import { ChatsCardMonitor } from '../ChatsCardMonitor/ChatsCardMonitor';
 import { IMonitorSecondSection } from './MonitorSecondSection.interface';
@@ -33,6 +39,32 @@ export const MonitorSecondSection: FC<IMonitorSecondSection> = ({
   handleStateAgents,
 }) => {
   const [accessToken] = useLocalStorage('AccessToken', '');
+
+  const handleLetterLimitName = (name: string) => {
+    if (name.length > 21) {
+      return `${name.slice(0, 21)}...`;
+    }
+    return name;
+  };
+  const handleLetterLimitEmail = (email: string) => {
+    if (email.length > 26) {
+      return `${email.slice(0, 26)}...`;
+    }
+    return email;
+  };
+  const handleTooltipName = (name: string) => {
+    if (name.length > 21) {
+      return <TooltipBoxName>{name}</TooltipBoxName>;
+    }
+    return null;
+  };
+
+  const handleTooltipEmail = (email: string) => {
+    if (email.length > 26) {
+      return <TooltipBoxEmail>{email}</TooltipBoxEmail>;
+    }
+    return null;
+  };
 
   return (
     <StyledWrapperSectionMonitor>
@@ -89,8 +121,18 @@ export const MonitorSecondSection: FC<IMonitorSecondSection> = ({
                     <StyledAgentActive />
                   ) : null}
                 </span>
-                <span>{name.slice(0, 16)}</span>
-                <span>{email}</span>
+                <StyledToolTipCardName>
+                  <TooltipTextName>
+                    {handleLetterLimitName(name)}
+                  </TooltipTextName>
+                  {handleTooltipName(name)}
+                </StyledToolTipCardName>
+                <StyledToolTipCardEmail>
+                  <TooltipTextEmail>
+                    {handleLetterLimitEmail(email)}
+                  </TooltipTextEmail>
+                  {handleTooltipEmail(email)}
+                </StyledToolTipCardEmail>
               </div>
             </div>
             <span>
