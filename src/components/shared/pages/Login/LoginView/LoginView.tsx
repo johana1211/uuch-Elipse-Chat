@@ -155,6 +155,7 @@ export const LoginView: FC<ViewLoginProps> = ({
                         type="text"
                         valid={touched.email && !errors.email}
                       />
+
                       <ErrorMessage name="email" component={StyleErrors} />
                     </StyledFirstInput>
                     <Text color="black" size="12px" weight="500">

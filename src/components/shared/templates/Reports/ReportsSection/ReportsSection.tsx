@@ -158,7 +158,7 @@ export const ReportsSection: FC = () => {
   };
   useEffect(() => {
     getInfoAgents();
-  });
+  }, []);
   return (
     <StyledWrapperReports>
       <LeftPanelReports

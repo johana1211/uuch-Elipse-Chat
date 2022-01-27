@@ -76,7 +76,6 @@ export const ChatsSection: FC<
   const onChangeSearchName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchByName(event.target.value);
   };
-  // Fución para buscar por Rut
 
   // --------------- <<< WEB SOCKET EVENTS >>> -----------------
   // Escucha los chats de usuarios o agentes según el parámetro que se le pase
